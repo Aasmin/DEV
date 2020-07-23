@@ -9,3 +9,4 @@ let greeter = function stat() {
     console.log("Functions are variables");
 }
 // greeter();
+ 

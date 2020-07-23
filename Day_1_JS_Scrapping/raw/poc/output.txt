@@ -25,7 +25,7 @@
     <ul>
         <li>
             <a href="https://www.google.com">Go to google</a></li>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Go to Mozilla</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"> Go to Mozilla</a></li>
         <li><a href="https://www.pepcoding.com">Here comes Pep</a></li>
         <li><a href="https://www.facebook.com">Facebook</a></li>
         <p class="para">I am p tag inside a ul</p>
@@ -46,7 +46,6 @@
         <!-- content -->
         <tbody>
             <tr>
-                <!-- id : identifiers -->
                 <td id="unique">Aasmin</td>
                 <td>London</td>
                 <td>Java</td>
