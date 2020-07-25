@@ -20,9 +20,9 @@ function dataReciever(err, res, html) {
 function parsefile(html) {  // get url of all matches page
     let $ = cheerio.load(html);
     // let list = $("ul.list-unstyled.mb-0");
-    // fs.writeFileSync("list.html",list);
+    // fs.writeFileSync(" .html",list);
 
-    let a = $("li.widget-items.cta-link a").attr("href");
+    let a = $("li.widget-items.cta-link a").attr("href");     //$ is like a page where search maarte hein to find data
     // console.log(a); //prints the link
     let fulllink = "https://www.espncricinfo.com/" + a;
     // console.log(fulllink); //prints the full link
@@ -57,3 +57,4 @@ function parseMatch(html) {
         eachMatchHandler("https://www.espncricinfo.com" + scoreCardLink);   // use => match.js file=> pass url
     }
 }
+
