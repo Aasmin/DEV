@@ -1,0 +1,381 @@
+0 Sending request
+1 Sending request
+2 Sending request
+3 Sending request
+4 Sending request
+5 Sending request
+6 Sending request
+7 Sending request
+8 Sending request
+9 Sending request
+10 Sending request
+11 Sending request
+12 Sending request
+13 Sending request
+14 Sending request
+15 Sending request
+16 Sending request
+17 Sending request
+18 Sending request
+19 Sending request
+20 Sending request
+21 Sending request
+22 Sending request
+23 Sending request
+24 Sending request
+25 Sending request
+26 Sending request
+27 Sending request
+28 Sending request
+29 Sending request
+30 Sending request
+31 Sending request
+32 Sending request
+33 Sending request
+34 Sending request
+35 Sending request
+36 Sending request
+37 Sending request
+38 Sending request
+39 Sending request
+40 Sending request
+41 Sending request
+42 Sending request
+43 Sending request
+44 Sending request
+45 Sending request
+46 Sending request
+47 Sending request
+48 Sending request
+49 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+48 inside response
+Australia
+``````````````````````````
+``````````````````````````
+47 inside response
+Australia
+``````````````````````````
+``````````````````````````
+46 inside response
+South Africa
+``````````````````````````
+``````````````````````````
+45 inside response
+Match abandoned without a ball bowled
+``````````````````````````
+``````````````````````````
+44 inside response
+India
+``````````````````````````
+``````````````````````````
+43 inside response
+India
+``````````````````````````
+``````````````````````````
+42 inside response
+England
+``````````````````````````
+``````````````````````````
+41 inside response
+Australia
+``````````````````````````
+``````````````````````````
+40 inside response
+India
+``````````````````````````
+``````````````````````````
+39 inside response
+West Indies
+``````````````````````````
+``````````````````````````
+38 inside response
+South Africa
+``````````````````````````
+``````````````````````````
+37 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+36 inside response
+Australia
+``````````````````````````
+``````````````````````````
+35 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+34 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+33 inside response
+Sri Lanka
+``````````````````````````
+``````````````````````````
+32 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+31 inside response
+West Indies
+``````````````````````````
+``````````````````````````
+30 inside response
+Afghanistan
+``````````````````````````
+``````````````````````````
+29 inside response
+India
+``````````````````````````
+``````````````````````````
+28 inside response
+Zimbabwe
+``````````````````````````
+``````````````````````````
+27 inside response
+South Africa
+``````````````````````````
+``````````````````````````
+26 inside response
+India
+``````````````````````````
+``````````````````````````
+25 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+24 inside response
+Bangladesh
+``````````````````````````
+``````````````````````````
+23 inside response
+South Africa
+``````````````````````````
+``````````````````````````
+22 inside response
+Pakistan
+``````````````````````````
+``````````````````````````
+21 inside response
+Sri Lanka
+``````````````````````````
+``````````````````````````
+20 inside response
+India
+``````````````````````````
+``````````````````````````
+19 inside response
+India
+``````````````````````````
+``````````````````````````
+18 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+17 inside response
+Sri Lanka
+``````````````````````````
+``````````````````````````
+16 inside response
+New Zealand
+``````````````````````````
+``````````````````````````
+15 inside response
+Ireland
+``````````````````````````
+``````````````````````````
+14 inside response
+Pakistan
+``````````````````````````
+``````````````````````````
+13 inside response
+Australia
+``````````````````````````
+``````````````````````````
+12 inside response
+Bangladesh
+``````````````````````````
+``````````````````````````
+11 inside response
+Australia
+``````````````````````````
+``````````````````````````
+10 inside response
+South Africa
+``````````````````````````
+``````````````````````````
+9 inside response
+Bangladesh
+``````````````````````````
+``````````````````````````
+8 inside response
+Pakistan
+``````````````````````````
+``````````````````````````
+7 inside response
+England
+``````````````````````````
+``````````````````````````
+6 inside response
+Australia
+``````````````````````````
+``````````````````````````
+5 inside response
+Ireland
+``````````````````````````
+``````````````````````````
+4 inside response
+Pakistan
+``````````````````````````
+``````````````````````````
+3 inside response
+Sri Lanka
+``````````````````````````
+``````````````````````````
+2 inside response
+Ireland
+``````````````````````````
+``````````````````````````
+1 inside response
+West Indies
+``````````````````````````
+``````````````````````````
+┌─────────┬────────────────────────┬────────────────┬──────┐
+│ (index) │          name          │      team      │ runs │
+├─────────┼────────────────────────┼────────────────┼──────┤
+│    0    │      'MJ Guptill'      │ 'New Zealand'  │ 532  │
+│    1    │   'BB McCullum (c)'    │ 'New Zealand'  │ 328  │
+│    2    │    'KS Williamson'     │ 'New Zealand'  │ 222  │
+│    3    │     'LRPL Taylor'      │ 'New Zealand'  │ 181  │
+│    4    │      'GD Elliott'      │ 'New Zealand'  │ 227  │
+│    5    │     'CJ Anderson'      │ 'New Zealand'  │ 231  │
+│    6    │      'L Ronchi †'      │ 'New Zealand'  │  73  │
+│    7    │      'DL Vettori'      │ 'New Zealand'  │  41  │
+│    8    │      'DA Warner'       │  'Australia'   │ 311  │
+│    9    │       'AJ Finch'       │  'Australia'   │ 266  │
+│   10    │      'SPD Smith'       │  'Australia'   │ 398  │
+│   11    │    'MJ Clarke (c)'     │  'Australia'   │ 207  │
+│   12    │      'SR Watson'       │  'Australia'   │ 185  │
+│   13    │      'GJ Maxwell'      │  'Australia'   │ 323  │
+│   14    │     'JP Faulkner'      │  'Australia'   │  44  │
+│   15    │     'BJ Haddin †'      │  'Australia'   │  83  │
+│   16    │      'MG Johnson'      │  'Australia'   │  30  │
+│   17    │     'Q de Kock †'      │ 'South Africa' │ 124  │
+│   18    │       'HM Amla'        │ 'South Africa' │ 263  │
+│   19    │     'F du Plessis'     │ 'South Africa' │ 216  │
+│   20    │  'AB de Villiers (c)'  │ 'South Africa' │ 310  │
+│   21    │      'DA Miller'       │ 'South Africa' │ 253  │
+│   22    │      'JP Duminy'       │ 'South Africa' │ 138  │
+│   23    │      'RG Sharma'       │    'India'     │ 296  │
+│   24    │       'S Dhawan'       │    'India'     │ 367  │
+│   25    │       'V Kohli'        │    'India'     │ 304  │
+│   26    │      'AM Rahane'       │    'India'     │ 164  │
+│   27    │       'SK Raina'       │    'India'     │ 277  │
+│   28    │    'MS Dhoni (c) †'    │    'India'     │ 172  │
+│   29    │      'RA Jadeja'       │    'India'     │  41  │
+│   30    │       'R Ashwin'       │    'India'     │  25  │
+│   31    │       'AD Hales'       │   'England'    │  37  │
+│   32    │       'IR Bell'        │   'England'    │ 106  │
+│   33    │      'JWA Taylor'      │   'England'    │  25  │
+│   34    │       'DR Smith'       │ 'West Indies'  │  38  │
+│   35    │      'J Charles'       │ 'West Indies'  │  55  │
+│   36    │      'MN Samuels'      │ 'West Indies'  │ 180  │
+│   37    │      'JL Carter'       │ 'West Indies'  │  50  │
+│   38    │      'AD Russell'      │ 'West Indies'  │  49  │
+│   39    │      'D Ramdin †'      │ 'West Indies'  │  84  │
+│   40    │      'TG Southee'      │ 'New Zealand'  │  12  │
+│   41    │       'AF Milne'       │ 'New Zealand'  │  1   │
+│   42    │   'HDRL Thirimanne'    │  'Sri Lanka'   │ 195  │
+│   43    │      'TM Dilshan'      │  'Sri Lanka'   │ 309  │
+│   44    │   'KC Sangakkara †'    │  'Sri Lanka'   │ 353  │
+│   45    │       'CH Gayle'       │ 'West Indies'  │ 219  │
+│   46    │     'Javed Ahmadi'     │ 'Afghanistan'  │  51  │
+│   47    │    'Nawroz Mangal'     │ 'Afghanistan'  │  7   │
+│   48    │    'Asghar Afghan'     │ 'Afghanistan'  │  4   │
+│   49    │  'Samiullah Shinwari'  │ 'Afghanistan'  │  96  │
+│   50    │  'Mohammad Nabi (c)'   │ 'Afghanistan'  │  1   │
+│   51    │    'Afsar Zazai †'     │ 'Afghanistan'  │  0   │
+│   52    │  'Najibullah Zadran'   │ 'Afghanistan'  │  4   │
+│   53    │    'Gulbadin Naib'     │ 'Afghanistan'  │  0   │
+│   54    │    'Dawlat Zadran'     │ 'Afghanistan'  │  9   │
+│   55    │     'Hamid Hassan'     │ 'Afghanistan'  │  15  │
+│   56    │    'Shapoor Zadran'    │ 'Afghanistan'  │  12  │
+│   57    │    'Mohammed Shami'    │    'India'     │  7   │
+│   58    │    'Sikandar Raza'     │   'Zimbabwe'   │  46  │
+│   59    │     'RW Chakabva'      │   'Zimbabwe'   │  35  │
+│   60    │     'H Masakadza'      │   'Zimbabwe'   │  1   │
+│   61    │     'BRM Taylor †'     │   'Zimbabwe'   │  47  │
+│   62    │     'SC Williams'      │   'Zimbabwe'   │  76  │
+│   63    │       'SF Mire'        │   'Zimbabwe'   │  9   │
+│   64    │      'CR Ervine'       │   'Zimbabwe'   │  42  │
+│   65    │   'E Chigumbura (c)'   │   'Zimbabwe'   │  14  │
+│   66    │      'RR Rossouw'      │ 'South Africa' │ 165  │
+│   67    │     'Tamim Iqbal'      │  'Bangladesh'  │ 116  │
+│   68    │    'Soumya Sarkar'     │  'Bangladesh'  │  70  │
+│   69    │     'Mahmudullah'      │  'Bangladesh'  │ 188  │
+│   70    │  'Mushfiqur Rahim †'   │  'Bangladesh'  │ 220  │
+│   71    │   'Shakib Al Hasan'    │  'Bangladesh'  │ 117  │
+│   72    │    'Sabbir Rahman'     │  'Bangladesh'  │  59  │
+│   73    │     'F Behardien'      │ 'South Africa' │  74  │
+│   74    │     'VD Philander'     │ 'South Africa' │  10  │
+│   75    │    'Nasir Jamshed'     │   'Pakistan'   │  5   │
+│   76    │    'Ahmed Shehzad'     │   'Pakistan'   │ 174  │
+│   77    │     'Haris Sohail'     │   'Pakistan'   │ 100  │
+│   78    │    'Sohaib Maqsood'    │   'Pakistan'   │  74  │
+│   79    │  'Misbah-ul-Haq (c)'   │   'Pakistan'   │ 233  │
+│   80    │     'Umar Akmal †'     │   'Pakistan'   │  52  │
+│   81    │    'Shahid Afridi'     │   'Pakistan'   │  43  │
+│   82    │      'Wahab Riaz'      │   'Pakistan'   │  60  │
+│   83    │       'TA Boult'       │ 'New Zealand'  │  0   │
+│   84    │   'DPMD Jayawardene'   │  'Sri Lanka'   │ 102  │
+│   85    │    'AD Mathews (c)'    │  'Sri Lanka'   │  95  │
+│   86    │     'MDKJ Perera'      │  'Sri Lanka'   │  24  │
+│   87    │     'NLTC Perera'      │  'Sri Lanka'   │  54  │
+│   88    │      'S Prasanna'      │  'Sri Lanka'   │  3   │
+│   89    │   'KMDN Kulasekara'    │  'Sri Lanka'   │  18  │
+│   90    │      'SL Malinga'      │  'Sri Lanka'   │  1   │
+│   91    │     'PVD Chameera'     │  'Sri Lanka'   │  12  │
+│   92    │ 'WTS Porterfield (c)'  │   'Ireland'    │  89  │
+│   93    │     'PR Stirling'      │   'Ireland'    │ 105  │
+│   94    │       'EC Joyce'       │   'Ireland'    │ 233  │
+│   95    │     'A Balbirnie'      │   'Ireland'    │ 136  │
+│   96    │      "KJ O'Brien"      │   'Ireland'    │  74  │
+│   97    │     'GC Wilson †'      │   'Ireland'    │ 106  │
+│   98    │      'JF Mooney'       │   'Ireland'    │  18  │
+│   99    │      "NJ O'Brien"      │   'Ireland'    │  98  │
+│   100   │     'GH Dockrell'      │   'Ireland'    │  12  │
+│   101   │      'AR Cusack'       │   'Ireland'    │  7   │
+│   102   │   'Sarfaraz Ahmed †'   │   'Pakistan'   │ 150  │
+│   103   │      'Umar Akmal'      │   'Pakistan'   │  33  │
+│   104   │       'MA Starc'       │  'Australia'   │  0   │
+│   105   │      'XJ Doherty'      │  'Australia'   │  0   │
+│   106   │     'Anamul Haque'     │  'Bangladesh'  │  29  │
+│   107   │ 'Mashrafe Mortaza (c)' │  'Bangladesh'  │  20  │
+│   108   │    'Mominul Haque'     │  'Bangladesh'  │  3   │
+│   109   │    'Rubel Hossain'     │  'Bangladesh'  │  0   │
+│   110   │     'Taskin Ahmed'     │  'Bangladesh'  │  1   │
+│   111   │    'GJ Bailey (c)'     │  'Australia'   │  55  │
+│   112   │       'MR Marsh'       │  'Australia'   │  31  │
+│   113   │     'Imrul Kayes'      │  'Bangladesh'  │  2   │
+│   114   │     'Arafat Sunny'     │  'Bangladesh'  │  3   │
+│   115   │     'Sohail Khan'      │   'Pakistan'   │  9   │
+│   116   │        'MM Ali'        │   'England'    │ 128  │
+│   117   │     'GS Ballance'      │   'England'    │  10  │
+│   118   │       'JE Root'        │   'England'    │  1   │
+│   119   │    'EJG Morgan (c)'    │   'England'    │  46  │
+│   120   │     'JC Buttler †'     │   'England'    │  24  │
+│   121   │      'CR Woakes'       │   'England'    │  1   │
+│   122   │      'SCJ Broad'       │   'England'    │  0   │
+│   123   │       'ST Finn'        │   'England'    │  1   │
+│   124   │     'Younis Khan'      │   'Pakistan'   │  37  │
+│   125   │      'Rahat Ali'       │   'Pakistan'   │  1   │
+│   126   │    'Mohammad Irfan'    │   'Pakistan'   │  1   │
+│   127   │   'FDM Karunaratne'    │  'Sri Lanka'   │  23  │
+│   128   │     'BMAJ Mendis'      │  'Sri Lanka'   │  9   │
+│   129   │       'DM Bravo'       │ 'West Indies'  │  49  │
+│   130   │     'LMP Simmons'      │ 'West Indies'  │  50  │
+│   131   │      'DJG Sammy'       │ 'West Indies'  │  30  │
+└─────────┴────────────────────────┴────────────────┴──────┘
