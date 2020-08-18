@@ -5,7 +5,7 @@
 * Multiple Task :
     * Parallely (Get Best price from Amazon, Flipkart, Snapdeal)
         * Async Function
-    * Serially  (Zoom recording -> on -> meeting end -> zoom account -> share link)
+    * Serially  (Zoom recording -> on -> meeting end -> zoom account -> share link) (dependent work)
         * Sync Functions
         * Async Functions
 * N-Tasks : (LinkedIn -> apply to all job listings) (for loop)
@@ -14,6 +14,6 @@
     * Serially 
         * Sync Functions
         * Async Functions
-* Conditional :
+* Conditional : (we have 3 files F1, F2, F3: if F1 size is < 1Mb then read F2 else F3)
     * Sync Functions
     * Async Functions
