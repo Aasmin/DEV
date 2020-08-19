@@ -1,4 +1,4 @@
-# Tasks
+## Tasks
 * Single Task :
     * Sync Functions
     * Async Functions
@@ -17,3 +17,8 @@
 * Conditional : (we have 3 files F1, F2, F3: if F1 size is < 1Mb then read F2 else F3)
     * Sync Functions
     * Async Functions
+
+## Note :
+* promise = future value (pending). (see /single/promise.js)
+    * 2 outcomes: if promise resolves = then. if promise rejects = catch. 
+
