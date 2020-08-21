@@ -1,4 +1,4 @@
-//Hackerrank links fetcher
+//Hackerrank links fetcher using Selenium - serially
 
 // npm install selenium-webdriver
 //npm install chromedriver
@@ -52,18 +52,11 @@ GWillBeOpendP.then(function () {
         let clickP = loginBtn.click();
         return clickP;
     }).then(function () {
-        let ipBtnP = driver.findElement(swd.By.css("#base-card-1-link"));
+        let ipBtnP = navigatorfn("#base-card-1-link");   //interview-prep link dhundo click karo
         return ipBtnP;
-    }).then(function (ipBtn) {
-        let btnWillBeclickedP = ipBtn.click();
-        return btnWillBeclickedP;
-    })
-    .then(function () {
-        let arrayBtnP = driver.findElement(swd.By.css("a[data-attr1='arrays']"));
+    }).then(function () {
+        let arrayBtnP = navigatorfn("a[data-attr1='arrays']");
         return arrayBtnP;
-    }).then(function (arrayBtn) {
-        let arrayBtnWillBeClickedP = arrayBtn.click();
-        return arrayBtnWillBeClickedP;
     }).then(function () {
         // console.log("Reached questions page")
         // find all elements
@@ -86,3 +79,22 @@ GWillBeOpendP.then(function () {
     .catch(function (err) {
         console.log(err)
     })
+
+    // promise=> resolve => find,click
+function navigatorfn(selector) {
+    let pPromise = new Promise(function (resolve, reject) {
+        // logic
+        let elemP = driver.findElement(swd.By.css(selector));
+        elemP
+            .then(function (elem) {
+                let clickP = elem.click();
+                return clickP;
+            }).then(function () {
+                resolve();
+            }).catch(function (err) {
+                console.log(err);
+                reject(err);
+            })
+    });
+    return pPromise;
+}
