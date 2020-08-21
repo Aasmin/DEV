@@ -1,3 +1,8 @@
+/**
+ * THIS FILE CONTAINS THE AUTOMATION SCRIPT TO SUBMIT INTERVIEWPREP QUESTIONS FROM HACKERANK.COM
+ * THIS IS MADE ONLY FOR EDUCATION PURPOSES. I DO NOT TAKE ANY RESPONSIBILITY IF YOUR ACCOUNT GETS SUSPENDED.
+ */
+
 // npm install selenium-webdriver
 //npm install chromedriver
 require("chromedriver");
@@ -21,7 +26,7 @@ let gCodeArr, gInputBox, gCodeBox;
 //         })
 //     })
 // })
-let { email, pwd } = require("../../../credentials");
+let { email, pwd } = require("../../../credentials");   //THIS FILE CONTAINS YOUR EMAIL AND PSWD
 GWillBeOpendP.then(function () {
     let addImpWaitP = driver.manage().setTimeouts({ implicit: 10000 });
     return addImpWaitP;
@@ -168,7 +173,7 @@ function getCode() {
                 }).then(
                     function (allLangArr) {
                         console.log(allLangArr);
-                        let index = allLangArr.indexOf("C++");
+                        let index = allLangArr.indexOf("C++");  //SUBMISSION WILL BE FOR THE C++ 
                         let codePromise = gCodeArr[index].getText();
                         return codePromise;
                         // filter out -> C++
