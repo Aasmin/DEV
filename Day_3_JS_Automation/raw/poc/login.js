@@ -116,9 +116,9 @@ function questionSubmitter(qlink) {
             // copy 
             // code paste
         }).then(function (code) {
-            console.log(code);
-            // let codePasteP = pasteCode(code);
-            // return codePasteP;
+            // console.log(code);
+            let codePasteP = pasteCode(code);
+            return codePasteP;
         })
             .then(function () {
                 console.log("code copied");
@@ -177,5 +177,57 @@ function getCode() {
                     }).catch(function (err) {
                         reject(err);
                     })
+    })
+}
+
+function pasteCode(code) {
+    return new Promise(function (resolve, reject) {
+        // click on problem tab
+        let goToProblemTabP = navigatorfn('a[data-attr2="Problem"]');
+        goToProblemTabP.then(function () {
+            let inputWillBeClickedP = navigatorfn(".custom-input-checkbox");
+            return inputWillBeClickedP;
+        }).then(function () {
+            let inputBoxP = driver.findElement(swd.By.css(".custominput"));
+            return inputBoxP;
+        }).then(function (inputBox) {
+            gInputBox = inputBox;
+            let codewillBeSendP = inputBox.sendKeys(code);
+            return codewillBeSendP;
+        }).then(function () {
+            // ctrl  A
+            let ctrlAWillBePressedP =
+                gInputBox.sendKeys(swd.Key.CONTROL + "a");
+            return ctrlAWillBePressedP;
+        }).then(function () {
+            // ctrlx
+            let ctrlXWillBePressedP =
+                gInputBox.sendKeys(swd.Key.CONTROL + "x");
+            return ctrlXWillBePressedP;
+        }).then(function () {
+            let codeBoxP =
+                driver.findElement(swd.By.css(".inputarea"));
+            return codeBoxP
+        }).then(function (codeBox) {
+            gCodeBox = codeBox;
+            let ctrlAp = codeBox.sendKeys(swd.Key.CONTROL + "a");
+            return ctrlAp;
+        }).then(function () {
+            let ctrlVP = gCodeBox.sendKeys(swd.Key.CONTROL + "v");
+            return ctrlVP;
+        }).then(function () {
+            let codeWillBeSubmitedP = navigatorfn(".hr-monaco-submit");
+            return codeWillBeSubmitedP
+        })
+            // findelemenet=> textbox
+            .then(function () {
+                console.log("code copied to input box");
+                resolve();
+            }).catch(function (err) {
+                reject(err);
+            })
+        // click on inputBox
+        // sendkeys
+        // submit code 
     })
 }

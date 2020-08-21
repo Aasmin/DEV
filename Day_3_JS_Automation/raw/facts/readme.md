@@ -22,3 +22,7 @@
 * promise = future value (pending). (see /single/promise.js)
     * 2 outcomes: if promise resolves = then. if promise rejects = catch. 
 
+* Types of editor: monaco(that vsCode use), codeMirror(leetCode uses), ace editor.
+In there editor, text boxes moves inside. 
+
+* To create temporary emails : https://temp-mail.org/en/
