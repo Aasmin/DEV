@@ -121,7 +121,7 @@ function questionSubmitter(qlink) {
             // copy 
             // code paste
         }).then(function (code) {
-            // console.log(code);
+            console.log(code);
             let codePasteP = pasteCode(code);
             return codePasteP;
         })
