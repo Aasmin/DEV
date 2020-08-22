@@ -1,3 +1,4 @@
+21.Aug.20 - Completed making automation script that autosubmits the given solution in locked editorial section.
 ## Tasks
 * Single Task :
     * Sync Functions
