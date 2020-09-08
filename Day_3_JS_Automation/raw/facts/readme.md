@@ -27,3 +27,13 @@
 In there editor, text boxes moves inside. 
 
 * To create temporary emails : https://temp-mail.org/en/
+
+* High Order Functions: Functions that take other functions as input or, returns a function as a result.
+
+* Scopes: 
+    * Local
+    * Global
+    * Closure
+
+Inner function creates a closure over variables of outer function
+
