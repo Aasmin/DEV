@@ -10,3 +10,4 @@ UI -> Web Applicatioin [Electron, helps in making cross-platform app, uses nodeJ
 
 ### NOTE: 
 API - Application se baat programatically baat krne ka interface
+div elements apni poori poori width lete hein across the container

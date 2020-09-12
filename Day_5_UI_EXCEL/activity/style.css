@@ -1,0 +1,40 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+}
+/* ?? */
+/* '*' is universal selector. box-sizing - size maintain krda */
+*{
+    box-sizing: border-box;
+}
+.menu-container{
+    height: 20px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-evenly;
+    
+    width: 124px;
+}
+.menu-options{
+  display: none;  
+}
+
+.formula-container{
+    height: 28px;
+    border: 1px solid royalblue;
+}
+
+.sheets-container{
+    height: 20px;
+    border: 1px solid grey;
+}
+
+.content-container{
+    /* height of this container should be dynamic as in the MS EXCEL. 
+     where vh - view height */
+    height: calc(100vh - 128px);    
+    background-color: lightgreen;
+    overflow: auto;
+position: relative;
+
+}
