@@ -9,5 +9,7 @@ UI -> Web Applicatioin [Electron, helps in making cross-platform app, uses nodeJ
 * WhiteBoard - (Deadline 3 days)
 
 ### NOTE: 
-API - Application se baat programatically baat krne ka interface
-div elements apni poori poori width lete hein across the container
+* API - Application se baat programatically baat krne ka interface
+* div elements apni poori poori width lete hein across the container
+* .ejs che data enter karn lai <%"ethe likho ji'%>
+* div ki height = size of content 

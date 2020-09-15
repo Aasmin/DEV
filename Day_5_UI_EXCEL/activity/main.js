@@ -7,6 +7,14 @@
 
 const electron = require("electron");
 const app = electron.app;
+//npm install ejs-electron
+const ejs = require("ejs-electron");  // as html che for loops vgera nahi hunde, we require ejs. 
+ejs.data({
+  "title": "My Excel",
+  "Heading": "My First Excel App",
+  "rows": 100,
+  "cols": 26
+})
 
 //Biolerplate code - baar baar use howega eh code
 function createWindow() {
@@ -17,7 +25,7 @@ function createWindow() {
             nodeIntegration: true
         }
     })
-    win.loadFile("index.html").then(function () {
+    win.loadFile("index.ejs").then(function () {
         win.maximize();
         win.webContents.openDevTools();
         console.log("Window opened successfully");
