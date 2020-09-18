@@ -4,8 +4,9 @@
  * Text Container -> Cell Click -> Address visibility
  * 
  * IN FORMULA: 4 cases: val > formula, formula > formula, val > val, formula
- * Need to take care of change in U(upstreams) and D(Downstreams).
+ * Need to take care of change in U(upstreams) and D(Downstreams). U and D are the arrays.
  * Dependency cycle avoidance.
+ * Major functions are: settingUandD, removingUandD, updatingCell, evaluatingValueOfCell.
 */
 
 const $ = require("jquery");
@@ -17,17 +18,6 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
     let db;
     let lsc;    //last selected cell - used to enter the formula
 
-    let lcell;
-    $("#grid .cell").on("click", function () {
-        let { colId, rowId } = getrc(this);
-        let value = String.fromCharCode(65 + colId)
-            + (rowId + 1);
-        let cellObject = db[rowId][colId];
-        $("#address-input").val(value);     //value set krdega us formaula bar pe
-        $("#formula-input").val(cellObject.formula);
- 
-    })
-   
     // **************Formula stuff starts here******************
     // Conversions in cells : 4 cases
     // val=> val
@@ -69,16 +59,45 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         updateCell(rowId, colId, nVal);
         //
     })
-
+    // upstream => go to your upstream=> get there values [baari baari value nikal da like niche pehla A1 kita evaluate then A11 kru]
+    // (   A1 +  A11 + A1 )= [ (,A1,+,A11,+,A1,)]=> [(,10,+,A11,+,10,)]=> ( 10 + A11 + 10 )
+    // ( 10 + 20 )
+    // eval() is used to evaluate an expression.
+    function evaluate(cellObj) {
+        let formula = cellObj.formula;
+        console.log(formula);
+        for (let i = 0; i < cellObj.upstream.length; i++) {
+            let cuso = cellObj.upstream[i]; //chhota upstream object
+            // rId,CId => A1w
+            let colAddress = String.fromCharCode(cuso.colId + 65);
+            let cellAddress = colAddress + (cuso.rowId + 1);
+            let fusokiVal = db[cuso.rowId][cuso.colId].value;
+            //  remove formula 
+            // return 
+            let formulCompArr = formula.split(" ");
+            formulCompArr = formulCompArr.map(function (elem) { // map == for loop
+                if (elem == cellAddress) {  //agar element match kr rha hai address se 
+                    return fusokiVal;
+                } else {
+                    return elem;
+                }
+            })
+            formula = formulCompArr.join(" ");
+        }
+        console.log(formula);
+        // infix evaluation
+        return eval(formula);
+    }
     // set yourself to parents downstream set parent to your upstream
     function updateCell(rowId, colId, nVal) {
         let cellObject = db[rowId][colId];
         cellObject.value = nVal;
         // update ui 
-        $(`#grid .cell[r-id=${rowId}][c-id=${colId}]`).html(nVal);
+        $(`#grid .cell[r-id=${rowId}][c-id=${colId}]`).html(nVal);  //set krti value. JQuery
 
+        //agar ek level pe change hoga to niche ke sabhi levels pe change aega
         for (let i = 0; i < cellObject.downstream.length; i++) {
-            let dsocordObj = cellObject.downstream[i];
+            let dsocordObj = cellObject.downstream[i]; //downstream obj ke cordinates
             let dso = db[dsocordObj.rowId][dsocordObj.colId];
             let dsonVal = evaluate(dso);
             updateCell(dsocordObj.rowId, dsocordObj.colId, dsonVal);
@@ -121,7 +140,7 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         let { rowId, colId } = getrc(cellElem);
         for (let i = 0; i < cellObject.upstream.length; i++) {
             let uso = cellObject.upstream[i];
-            let fuso = db[uso.rowId][uso.colId];
+            let fuso = db[uso.rowId][uso.colId];    // full upstream object
             // find index splice yourself
             // 02
             // 00,01,02
