@@ -8,6 +8,12 @@ UI -> Web Applicatioin [Electron, helps in making cross-platform app, uses nodeJ
 * VSCode Clone - (Deadline 3 days)
 * WhiteBoard - (Deadline 3 days)
 
+### Things left for Excel Clone: 
+* underline, align, font-size,  italic and color of text
+* graph - cycle check
+* formula validation
+
+
 ### NOTE: 
 * API - Application se baat programatically baat krne ka interface
 * div elements apni poori poori width lete hein across the container
