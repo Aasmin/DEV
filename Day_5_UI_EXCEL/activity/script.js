@@ -32,7 +32,8 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         $($("#left-col .cell")[rowId]).height(ht);  //compairing and adjusting the height of cell if content overflows
 
     })
-
+ // ````````````````Formatting Functionality`````````````````
+        // Open either File or Home menu options
     $(".menu").on("click", function () {
         let Id = $(this).attr("id");
         // File
@@ -59,6 +60,24 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
             $("#bold").removeClass("isOn")
         }
         lcell = this;
+        if (cellObject.underline) {
+            $("#underline").addClass("selected");
+        }
+        else {
+            $("#underline").removeClass("selected");
+        }
+        if (cellObject.italic) {
+            $("#italic").addClass("selected");
+        }
+        else {
+            $("#italic").removeClass("selected");
+        }
+        $("#bg-color").val(cellObject.bgColor);
+        $("#text-color").val(cellObject.textColor);
+        $("#font-size").val(cellObject.fontSize);
+        $("#font-family").val(cellObject.fontFamily);
+        $('[halign]').removeClass('selected');
+        $('[halign=' + cellObject.halign + ']').addClass('selected');
     })
     $("#bold").on("click", function () {
         $(this).toggleClass("isOn");
@@ -68,13 +87,46 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         let cellObject = getcell(cellElem);
         cellObject.bold = isBold;
     })
+    $('#underline').on("click", function () {
+        $(this).toggleClass('selected');
+        let underline = $(this).hasClass('selected');
 
+        $(lsc).css("text-decoration", underline ? "underline" : "none");
+
+        let rid = parseInt($(lsc).attr('ri'));
+        let cid = parseInt($(lsc).attr('ci'));
+
+        db[rid][cid].underline = underline;
+
+    })
+
+    $('#italic').on("click", function () {
+        $(this).toggleClass('selected');
+        let italic = $(this).hasClass('selected');
+
+        $(lsc).css("font-style", italic ? "italic" : "normal");
+
+        let rid = parseInt($(lsc).attr('ri'));
+        let cid = parseInt($(lsc).attr('ci'));
+
+        db[rid][cid].italic = italic;
+    })
     $("#font-family").on("change", function () {
         let fontFamily = $(this).val();
         $("#grid .cell.selected").css("font-family", fontFamily);
         let cellElem = $("#grid .cell.selected");
         let cellObject = getcell(cellElem);
         cellObject.fontFamily = fontFamily
+    })
+
+    $('#text-color').on("change", function () {
+        let textColor = $(this).val();
+        $(lsc).css("color", textColor);
+
+        let rid = parseInt($(lsc).attr('ri'));
+        let cid = parseInt($(lsc).attr('ci'));
+
+        db[rid][cid].textColor = textColor;
     })
 
     $("#bg-color").on("change", function () {
@@ -84,6 +136,21 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         let cellObject = getcell(cellElem);
         cellObject.bgColor = bgColor
     })
+
+
+    $('[halign]').on('click', function () {
+        $('[halign]').removeClass('selected');
+        $(this).addClass('selected');
+
+        let halign = $(this).attr('halign');
+        $(lsc).css("text-align", halign);
+
+        let rid = parseInt($(lsc).attr('ri'));
+        let cid = parseInt($(lsc).attr('ci'));
+
+        db[rid][cid].halign = halign;
+    })
+
     $("#New").on("click", function () {
         db = [];
         let AllRows = $("#grid").find(".row");
@@ -124,6 +191,7 @@ $(document).ready(function () {     // DOM - (document defines the html). I.e if
         console.log(db);
         // $("#grid .cell").eq(0).trigger("click");
         let cellArr = $("#grid .cell");
+         // click the first cell always a new file is created
         $(cellArr[0]).trigger("click");
     })
 
