@@ -1,0 +1,17 @@
+{
+  "name": "Day_6_VSCodeEditor",
+  "version": "1.0.0",
+  "description": "## Observed: Mostly the library integrations will be done. Use Monaco Editor in the editor area. Use Jstree for the file structure area. How to integrate Terminal?  * Xterm?(for UI)  * node-pty? (for shell commands)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.2"
+  },
+  "dependencies": {}
+}
