@@ -1,0 +1,1 @@
+Use live server to start the game. (Download the live server from Extensions)
