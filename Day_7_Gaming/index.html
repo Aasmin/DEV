@@ -1,3 +1,4 @@
+<!-- JUMP COLLECT STAR GAME - USE ARROW KEYS TO PLAY -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,25 +32,91 @@
 
             }, scene: {
                 // assets that would used later in the game
-                preload: preload,
+                preload: preload,   // mechanism
                 // initialize 
-                create: setup,
+                create: setup,  // visible area
                 // update
-                update: update
+                update: update  //working
             }
         }
+        let platform, player, cursor, stars, score = 0, scoreText, bombs, gameOver = false;
         function preload() {    
             this.load.image("sky", "assets/sky.png");   //this == game
             this.load.image("platform", "assets/platform.png");
+            this.load.spritesheet("hero", "assets/player.png", {
+                frameWidth: 32,
+                frameHeight: 48
+            });
             this.load.image("star", "assets/star.png");
-            this.load.image("bomb", "assets/bomb.png");
         }
         function setup() {
             // to add background
-            this.add.image(400, 300, "sky");
+            this.add.image(400, 300, "sky");    //center cordinate - center area che image chhap di
+            // to make an asset static=> no effect of gravity
+            platform = this.physics.add.staticGroup();
+            platform.create(400, 550, "platform").setScale(2).refreshBody();  //refresh jroori for the object to know about the scaling 
+            platform.create(600, 400, "platform");
+            platform.create(50, 250, "platform");
+            platform.create(650, 200, "platform");
+            player = this.physics.add.sprite(400, 100, "hero"); 
+            // to create cursor keys
+            // for animation
+            cursor = this.input.keyboard.createCursorKeys();    // up down left right integrate
+            stars = this.physics.add.group({
+                key: "star",
+                repeat: 10,
+                setXY: { x: 50, y: 0, stepX: 70 }   //pehle waale ka x, y (50, 0). Stepx = har star ke beech ki doori. 
+            })
+            let game = this;
+            this.physics.add.collider(player, platform);
+            // let boundFn = collectStar.bind(this);
+            this.physics.add.collider(player, stars, collectStar);
+            this.physics.add.collider(platform, stars);
+            stars.children.iterate(function (star) {
+                star.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)) //Adding random bounce 
+            });
+            //Animation
+            this.anims.create({
+                key: "left",
+                frames: this.anims.generateFrameNumbers("hero", { start: 0, end: 3 }),
+                frameRate: 10,  //10 ms ki speed pe change
+                repeat: +1  //+1, -1, 0 [repeat coz 4 frames che khatm a loop islai repaet the cycle]
+            })
+            this.anims.create({
+                key: "right",
+                frames: this.anims.generateFrameNumbers("hero", { start: 5, end: 9 }),
+                frameRate: 10,
+                repeat: +1
+            })
+            this.anims.create({
+                key: "normal",
+                frames: this.anims.generateFrameNumbers("hero", { start: 4, end: 4 }),
+                frameRate: 10
+            })
+        }
+        function collectStar(player, star) {
+            star.disableBody(true, true);   //1st param = move hona band hota, 2nd para = dikhna band hota
         }
         function update() {
+            if(gameOver==true){
+                return;
+            }
+            if (cursor.left.isDown) {
+                player.setVelocityX(-160);
+                player.anims.play("left", true);
 
+            } else if (cursor.right.isDown) {
+                player.setVelocityX(160);
+                player.anims.play("right", true);
+            } else {
+                player.setVelocityX(0);
+                player.anims.play("normal");
+            }
+            // Vertical Jump
+            if (cursor.up.isDown && player.body.touching.down) {
+                player.setVelocityY(-480);
+
+            }
         }
         new Phaser.Game(config);
     </script>
