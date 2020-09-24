@@ -48,6 +48,8 @@
                 frameHeight: 48
             });
             this.load.image("star", "assets/star.png");
+            this.load.audioSprite("sfx", "assets/fx_mixdown.json", ["assets/fx_mixdown.mp3", "assets/fx_mixdown.ogg"]);
+            this.load.image("bomb", "assets/bomb.png");
         }
         function setup() {
             // to add background
@@ -61,6 +63,11 @@
             player = this.physics.add.sprite(400, 100, "hero"); 
             // to create cursor keys
             // for animation
+            bombs = this.physics.add.group();
+            let bomb = bombs.create(400, 0, "bomb");
+            bomb.setBounce(1);  //bouncing speed
+            bomb.setCollideWorldBounds(true); //screen ton bahr ni janda
+            bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);   // ((x, kitni speed mein x move), y)
             cursor = this.input.keyboard.createCursorKeys();    // up down left right integrate
             stars = this.physics.add.group({
                 key: "star",
@@ -70,8 +77,17 @@
             let game = this;
             this.physics.add.collider(player, platform);
             // let boundFn = collectStar.bind(this);
-            this.physics.add.collider(player, stars, collectStar);
+            this.physics.add.collider(player, stars, collectStar, null, this);
             this.physics.add.collider(platform, stars);
+            this.physics.add.collider(platform, bombs);
+            this.physics.add.collider(player, bombs, hitBomb.bind(this));
+            // you can add text to phas
+            scoreText = this.add.text(16, 16, "score:0", {
+                fontSize: "32px",
+                fill: "white"
+            })
+            player.setCollideWorldBounds(true);
+
             stars.children.iterate(function (star) {
                 star.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)) //Adding random bounce 
             });
@@ -96,6 +112,27 @@
         }
         function collectStar(player, star) {
             star.disableBody(true, true);   //1st param = move hona band hota, 2nd para = dikhna band hota
+            this.sound.playAudioSprite("sfx", "ping");
+            score += 10;
+            scoreText.setText("Score: " + score);
+            if (score % 100 == 0) {
+                stars.children.iterate(function (child) {
+                    child.enableBody(true, child.x, 0, true, true); //asking for stars after all collected
+                })
+                let x = player.x < 400 ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);   //bomb ko bnde ki opposite side pe mangwao
+                let bomb = bombs.create(x, 0, "bomb");
+                bomb.setBounce(1);
+                bomb.setCollideWorldBounds(true);
+                bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+            }
+        }
+        function hitBomb() {
+            this.sound.playAudioSprite("sfx", "alien death");
+            this.physics.pause();
+            player.setTint(0xff0000); //color change
+            player.anims.play("normal");    //move na kr paye bilkul bhi
+            gameOver = true
+            // location.reload();   //browser refersh
         }
         function update() {
             if(gameOver==true){
@@ -104,10 +141,12 @@
             if (cursor.left.isDown) {
                 player.setVelocityX(-160);
                 player.anims.play("left", true);
+                // this.sound.playAudioSprite("sfx", "numkey");
 
             } else if (cursor.right.isDown) {
                 player.setVelocityX(160);
                 player.anims.play("right", true);
+                // this.sound.playAudioSprite("sfx", "numkey");
             } else {
                 player.setVelocityX(0);
                 player.anims.play("normal");
@@ -116,6 +155,7 @@
             if (cursor.up.isDown && player.body.touching.down) {
                 player.setVelocityY(-480);
 
+                this.sound.playAudioSprite("sfx", "numkey");
             }
         }
         new Phaser.Game(config);
