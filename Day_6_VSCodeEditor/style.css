@@ -1,53 +1,80 @@
 *{
     box-sizing: border-box;
-    border:1px solid;
+    color: white;
+    /* border: 1px solid;*/
 }
 body,html{
+    color:red;
     margin: 0px;
     padding: 0px;
+    font-family: 'Roboto' ,sans-serif; /* sans-serif is callback. iff google font coulnt load up*/
 }
-body{
+.container{
     height: 100vh;
-    color: white;
-    background-color: #353b48;
-    font-family: sans-serif;
-    border:none;
+    background-color: #1e2024;
+    /* To provide white space */
+    padding: 0 1rem; /*top-btm 0, left-rt 1*/
+    padding-top: 1rem;
 }
-.top{
-height:13%;
-display:flex;
-align-items: center;
+.top-row{
+    height: 55px;
+    display: flex;   
+    justify-content: space-between; /* horizontally align */
+    margin-bottom: 1rem; 
 }
-.btn,.new,.save{
-    border:none;
+.btn-container{
+    /* border: 1px solid red; */
+    width: 12rem;
+    height: 100%;   /* height picked from the parent container*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.new{
-
+/* btn default styling */
+.btn{
+ background: #444857;
+    height: 80%;
+    width: 35%;
+    border-radius: 4px;
+    border: none;
 }
-.save{
-    color:white;
-    background-color: #353b48;
+.btn.new{
+    color: black;
+    background-image: 
+    linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 }
 .tabs-container{
-    width: 42rem;
+    width: calc(100vw - 15rem);
+    background: gray;
     height: 100%;
+    text-align: center;
 }
-.file-explorer{
-
-}
-.main{
-    height: calc(100vh - 13%);
-    border: 1px solid;
+.main-container{
+    height: calc(100vh - 87px );
+    background: rebeccapurple;
     display: flex;
 }
-.content{
+
+.file-explorer{
     height: 100%;
-    border: 1px solid;
-    width:42rem;
+    background: black;
+    width: 30%;
+}
+
+.content{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /*boxes will align vertically*/
+    justify-content: space-between;
 }
 .textbox{
-height: 80%;
+    height: 69%;
+    border: 1px solid;
 }
 .terminal{
-height: 20%;
+    height: 100%;
+    overflow: auto;
+    width:100%;
+    border: 1px solid blue;
 }
