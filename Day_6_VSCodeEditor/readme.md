@@ -2,7 +2,7 @@
 Deadline: 11 Oct 2020 - 4 days
 ## Observed: Mostly the library integrations will be done. (Learning)
 Use Monaco Editor in the editor area.
-Use Jstree for the file structure area. [i.e to show file heirarchy]
+Use Jstree for the file structure area. [i.e to show file heirarchy] (Didn't use w2ui as it slows down the opening)
 How to integrate Terminal? 
 * Xterm?(for UI) - I/P lega
 * node-pty? (for shell commands) -shell ko chlae ga,
