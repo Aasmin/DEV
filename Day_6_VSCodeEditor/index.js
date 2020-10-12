@@ -47,6 +47,13 @@ $(document).ready(function(){   //jquery ka function i.e agr document load hojae
                 //jis krke arrow lagg jauga
         }
     }
+}).on("select_node.jstree", function (e, dataObj) {
+    let fPath = dataObj.node.id;
+    let isFile = fs.lstatSync(fPath).isFile(); //chck file hai ke nhi
+    if (isFile) {
+        let content = fs.readFileSync(fPath,"utf-8"); //buffer to text
+        console.log(content);
+    }
 })
 })
  
