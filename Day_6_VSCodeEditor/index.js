@@ -8,9 +8,19 @@ require('jstree');  //jstree mein har file and folder ko node kehte hein.
 const path = require('path') //jstree ka module hai path
 $(document).ready(function(){   //jquery ka function i.e agr document load hojae to function chla do
     //editor
-    let mLoader = require("./node_modules/monaco-editor/min/vs/loader.js");
-    mLoader.require.config({ paths: { 'vs': './node_modules/monaco-editor/min/vs' } });
-    mLoader.require(['vs/editor/editor.main'], function () {
+    //https://github.com/microsoft/monaco-editor-samples/blob/master/electron-amd-nodeIntegration/electron-index.html
+    const amdLoader = require('./node_modules/monaco-editor/min/vs/loader.js');
+    const amdRequire = amdLoader.require;
+    const amdDefine = amdLoader.require.define;
+
+    amdRequire.config({
+        baseUrl: './node_modules/monaco-editor/min'
+    });
+
+    // workaround monaco-css not understanding the environment
+    self.module = undefined;
+
+    amdRequire(['vs/editor/editor.main'], function () {
         var editor = monaco.editor.create(document.getElementById('editor'), {
             value: [
                 'function x() {',

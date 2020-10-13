@@ -1,7 +1,8 @@
 # Road Map for VS CODE Editor:
 Deadline: 11 Oct 2020 - 4 days
 ## Observed: Mostly the library integrations will be done. (Learning)
-Use Monaco Editor in the editor area.
+Use Monaco Editor in the editor area.(can also try codeMirror/Ace editor)
+Reference: https://github.com/microsoft/monaco-editor-samples/blob/master/electron-amd-nodeIntegration/electron-index.html
 Use Jstree for the file structure area. [i.e to show file heirarchy] (Didn't use w2ui as it slows down the opening)
 How to integrate Terminal? 
 * Xterm?(for UI) - I/P lega
