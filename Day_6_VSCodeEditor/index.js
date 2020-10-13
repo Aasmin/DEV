@@ -1,15 +1,17 @@
 // npm install --save-dev jstree
 // npm install --save-dev jquery
 // npm install monaco-editor
+// npm install -g node-gyp
 const $ = require('jquery');
 const fs = require("fs");
 const { dir } = require("console");
-let myMonaco;
+let myMonaco, editor;
 require('jstree');  //jstree mein har file and folder ko node kehte hein. 
+let tabArr = {};
 const path = require('path') //jstree ka module hai path
 $(document).ready(async function(){   //jquery ka function i.e agr document load hojae to function chla do
     //editor
-    let editor = await createEditor();  //added promise
+    editor = await createEditor();  //added promise
     //terminal
     //tabs
     //tree view
@@ -53,19 +55,12 @@ $(document).ready(async function(){   //jquery ka function i.e agr document load
 }).on("select_node.jstree", function (e, dataObj) {
     let fPath = dataObj.node.id;
     let isFile = fs.lstatSync(fPath).isFile(); //chck file hai ke nhi
-    if (isFile) {
-        let content = fs.readFileSync(fPath,"utf-8"); //buffer to text
-        // console.log(content);
-        editor.getModel().setValue(content); 
-        //Observed: Error arhe the for all lang other than JS. Therefore, find the extension and send that to model
-        var model = editor.getModel(); 
-        let ext = fPath.split(".").pop(); //ext: language to be used
-        if (ext == "js") {
-            ext = "javascript";
-        }
-        myMonaco.editor.setModelLanguage(model, ext);   
+    //set Data
+    if (isFile){ 
+        setData(fPath); //show data on UI
+        createTab(fPath);    
     }
-})
+    })
 })
  
 function addCh(parentPath) {
@@ -116,4 +111,39 @@ function createEditor() {
                 resolve(editor);
             });
         })
+}
+function setData(fPath) {
+    let content = fs.readFileSync(fPath,"utf-8"); //buffer to text
+        // console.log(content);
+        editor.getModel().setValue(content); 
+        //Observed: Error arhe the for all lang other than JS. Therefore, find the extension and send that to model
+        var model = editor.getModel(); 
+        let ext = fPath.split(".").pop(); //ext: language to be used
+        if (ext == "js") {
+            ext = "javascript";
+        }
+        myMonaco.editor.setModelLanguage(model, ext);   
+}
+function createTab(fPath) {
+    let fName = path.basename(fPath);
+    if (!tabArr[fPath]) {   //For icon Used: https://fontawesome.com/icons?d=gallery&q=close
+        $("#tabs-row").append(`<div class="tab">
+        <div class="tab-name" id=${fPath} onclick=handleTab(this)>${fName}</div>
+        <i class="fas fa-times" id=${fPath} onclick=handleClose(this)></i>
+        </div>`);
+        tabArr[fPath] = fName;
+    }
+}
+function handleTab(elem) {  // mirror the file explorer click to open up the file if clicked on tab already opened
+    let fPath = $(elem).attr("id");
+    setData(fPath);
+}
+function handleClose(elem) {
+    let fPath = $(elem).attr("id");
+    delete tabArr[fPath];
+    $(elem).parent().remove();  //parent == tab (line 130)
+    fPath =$(".tab .tab-name").eq(0).attr("id");    // find first tab
+    if(fPath){
+        setData(fPath);
+    }
 }

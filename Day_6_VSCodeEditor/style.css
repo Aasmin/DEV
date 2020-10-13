@@ -47,7 +47,12 @@ body,html{
     width: calc(100vw - 15rem);
     background: gray;
     height: 100%;
+    display: flex;
     text-align: center;
+    align-items: center;
+    padding-left: 10px;
+    overflow: auto;
+    border-radius: 6px;
 }
 .main-container{
     height: calc(100vh - 87px );
@@ -95,4 +100,19 @@ box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.363);
 } 
 #editor{
     height: 100%;
+} 
+.tab{
+    display: flex;
+    background-image: linear-gradient(135deg, #66afea 0%, #654ba2 100%);
+    height: 73%;
+    align-items: center;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+.fa-times{
+    align-self: start;
+    /* font-size:10px; */
+}
+.tab-name{
+
 } 
