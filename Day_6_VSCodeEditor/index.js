@@ -1,5 +1,6 @@
 // npm install --save-dev jstree
 // npm install --save-dev jquery
+// npm install monaco-editor
 const $ = require('jquery');
 const fs = require("fs");
 const { dir } = require("console");
@@ -7,6 +8,18 @@ require('jstree');  //jstree mein har file and folder ko node kehte hein.
 const path = require('path') //jstree ka module hai path
 $(document).ready(function(){   //jquery ka function i.e agr document load hojae to function chla do
     //editor
+    let mLoader = require("./node_modules/monaco-editor/min/vs/loader.js");
+    mLoader.require.config({ paths: { 'vs': './node_modules/monaco-editor/min/vs' } });
+    mLoader.require(['vs/editor/editor.main'], function () {
+        var editor = monaco.editor.create(document.getElementById('editor'), {
+            value: [
+                'function x() {',
+                '\tconsole.log("Hello world!");',
+                '}'
+            ].join('\n'),
+            language: 'javascript'
+        });
+    });
     //terminal
     //tabs
     //tree view

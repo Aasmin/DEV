@@ -93,3 +93,6 @@ body,html{
 border: 1px solid #141414;
 box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.363);
 } 
+#editor{
+    height: 100%;
+} 
