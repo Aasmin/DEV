@@ -4,32 +4,12 @@
 const $ = require('jquery');
 const fs = require("fs");
 const { dir } = require("console");
+let myMonaco;
 require('jstree');  //jstree mein har file and folder ko node kehte hein. 
 const path = require('path') //jstree ka module hai path
-$(document).ready(function(){   //jquery ka function i.e agr document load hojae to function chla do
+$(document).ready(async function(){   //jquery ka function i.e agr document load hojae to function chla do
     //editor
-    //https://github.com/microsoft/monaco-editor-samples/blob/master/electron-amd-nodeIntegration/electron-index.html
-    const amdLoader = require('./node_modules/monaco-editor/min/vs/loader.js');
-    const amdRequire = amdLoader.require;
-    const amdDefine = amdLoader.require.define;
-
-    amdRequire.config({
-        baseUrl: './node_modules/monaco-editor/min'
-    });
-
-    // workaround monaco-css not understanding the environment
-    self.module = undefined;
-
-    amdRequire(['vs/editor/editor.main'], function () {
-        var editor = monaco.editor.create(document.getElementById('editor'), {
-            value: [
-                'function x() {',
-                '\tconsole.log("Hello world!");',
-                '}'
-            ].join('\n'),
-            language: 'javascript'
-        });
-    });
+    let editor = await createEditor();  //added promise
     //terminal
     //tabs
     //tree view
@@ -75,7 +55,15 @@ $(document).ready(function(){   //jquery ka function i.e agr document load hojae
     let isFile = fs.lstatSync(fPath).isFile(); //chck file hai ke nhi
     if (isFile) {
         let content = fs.readFileSync(fPath,"utf-8"); //buffer to text
-        console.log(content);
+        // console.log(content);
+        editor.getModel().setValue(content); 
+        //Observed: Error arhe the for all lang other than JS. Therefore, find the extension and send that to model
+        var model = editor.getModel(); 
+        let ext = fPath.split(".").pop(); //ext: language to be used
+        if (ext == "js") {
+            ext = "javascript";
+        }
+        myMonaco.editor.setModelLanguage(model, ext);   
     }
 })
 })
@@ -101,19 +89,31 @@ function addCh(parentPath) {
 } 
 //WORKING of above - In JsTree har node ke liye - { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" } - bnega
 //  then create data call hoga sabhi ke liye    //jis cheez ka parent nahi wahan put '#'
-//     var data = [
-//         { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" },
-//         { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
-//         { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
-//         { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" },
-//      ];
-//     $("#tree").jstree({
-//       "core" : {
-//          "data": data
-//       },     
-//    })
-// })
 
-// function getName(path){
-//     return nodePath.basename(path);
-// }
+function createEditor() {
+     //https://github.com/microsoft/monaco-editor-samples/blob/master/electron-amd-nodeIntegration/electron-index.html
+     const amdLoader = require('./node_modules/monaco-editor/min/vs/loader.js');
+     const amdRequire = amdLoader.require;
+     const amdDefine = amdLoader.require.define;
+ 
+     amdRequire.config({
+         baseUrl: './node_modules/monaco-editor/min'
+     });
+ 
+     // workaround monaco-css not understanding the environment
+     self.module = undefined;
+     return new Promise(function (resolve, reject){
+         amdRequire(['vs/editor/editor.main'], function () {
+             var editor = monaco.editor.create(document.getElementById('editor'), {
+                 value: [
+                     'function x() {',
+                     '\tconsole.log("Hello world!");',
+                     '}'
+                    ].join('\n'),
+                    language: 'javascript'
+                });
+                myMonaco = monaco;  //saving the refernce so that to use it globally (hor functions che use karn lai)
+                resolve(editor);
+            });
+        })
+}
