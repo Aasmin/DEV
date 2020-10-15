@@ -12,4 +12,4 @@ they run till completion -> serial task
 ### 2. Asynchronous function 
 they will only be initialized, and actual task runs in the background and its completion is confirmed -> it can be parallel or serial
 
-
+USE node request.js to run batsmanAgregrator
