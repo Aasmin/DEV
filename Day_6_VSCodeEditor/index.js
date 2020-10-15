@@ -88,11 +88,11 @@ $(document).ready(async function(){   //jquery ka function i.e agr document load
     xterm.open(document.getElementById('terminal'));
 
     // Setup communication between xterm.js and node-pty
-    xterm.onData(function(data) {ptyProcess.write(data)});
-    ptyProcess.on('data', function (data) {
-        xterm.write(data);
+    xterm.onData(function(data) {ptyProcess.write(data)});  //input (Xterm se data will be written to pty and then sent to terminal)
+    ptyProcess.on('data', function (data) { 
+        xterm.write(data);    // after processing terminal sends back data to xterm
     });
-    fitAddon.fit();
+    fitAddon.fit(); //parent ke height and width ko match
     myMonaco.editor.defineTheme('dark', {
         base: 'vs-dark',
         inherit: true,
