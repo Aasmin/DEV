@@ -30,7 +30,10 @@ $(document).ready(async function(){   //jquery ka function i.e agr document load
     $("#tree").jstree({ //jstree make use of "tree" div to append the results to display on UI
         "core": {//core property mein data pass krdiya
             "check_callback" : true, //callback check krta if function fer te call karda
-            "data": data
+            "data": data,
+            "themes": {
+                "icons": false
+            }
         },
     }).on("open_node.jstree", function (e, onClickData) {  //changed the select approach coz oh item de content nu khol reha c rather than ohde childs ikalle read krne
         console.log(onClickData);
@@ -60,9 +63,77 @@ $(document).ready(async function(){   //jquery ka function i.e agr document load
         setData(fPath); //show data on UI
         createTab(fPath);    
     }
+    });
+    // Terminal
+    const os = require('os');
+    const pty = require('node-pty');
+    const Terminal = require('xterm').Terminal;
+
+    // Initialize node-pty with an appropriate shell
+    const shell = process.env[os.platform() === 'win32' ? 'COMSPEC' : 'SHELL'];
+    const ptyProcess = pty.spawn(shell, [], {
+        name: 'xterm-color',
+        cols: 80,
+        rows: 30,
+        cwd: process.cwd(),
+        env: process.env
+    });
+
+    let { FitAddon } = require('xterm-addon-fit');
+    const xterm = new Terminal();
+    const fitAddon = new FitAddon();
+    xterm.loadAddon(fitAddon);
+    xterm.setOption('theme', {background: 'rebeccapurple'});
+    // Initialize xterm.js and attach it to the DOM
+    xterm.open(document.getElementById('terminal'));
+
+    // Setup communication between xterm.js and node-pty
+    xterm.onData(function(data) {ptyProcess.write(data)});
+    ptyProcess.on('data', function (data) {
+        xterm.write(data);
+    });
+    fitAddon.fit();
+    myMonaco.editor.defineTheme('dark', {
+        base: 'vs-dark',
+        inherit: true,
+        rules: [{ background: '#1e2024' }],
+        "colors": {
+            "editor.foreground": "#F8F8F8",
+            "editor.background": "#1e2024",
+            "editor.selectionBackground": "#DDF0FF33",
+            "editor.lineHighlightBackground": "#FFFFFF08",
+            "editorCursor.foreground": "#A7A7A7",
+            "editorWhitespace.foreground": "#FFFFFF40"
+        }
+    });
+    myMonaco.editor.defineTheme('light', {
+        "base": "vs",
+        "inherit": true,
+        rules: [{ background: '#1e2024' }],
+        "colors": {
+            "editor.foreground": "#3B3B3B",
+            "editor.background": "#FFFFFF",
+            "editor.selectionBackground": "#BAD6FD",
+            "editor.lineHighlightBackground": "#00000012",
+            "editorCursor.foreground": "#000000",
+            "editorWhitespace.foreground": "#BFBFBF"
+        }
+    });
+    let isDark = false;
+    $("#toggle").on("click", function(){
+        if(isDark){
+            myMonaco.editor.setTheme('light');
+        }else{
+            myMonaco.editor.setTheme('dark');
+        }
+        isDark = !isDark;
     })
+    $(".file-explorer").resizeable();
+    setTimeout(function () {
+        myMonaco.editor.setTheme('myTheme');
+    },10000);
 })
- 
+
 function addCh(parentPath) {
     let isDir = fs.lstatSync(parentPath).isDirectory();     //check if its a folder 
     if (isDir == false) { //if its not a folder return empty
@@ -105,7 +176,8 @@ function createEditor() {
                      '\tconsole.log("Hello world!");',
                      '}'
                     ].join('\n'),
-                    language: 'javascript'
+                    language: 'javascript',
+                    automaticLayout: true
                 });
                 myMonaco = monaco;  //saving the refernce so that to use it globally (hor functions che use karn lai)
                 resolve(editor);

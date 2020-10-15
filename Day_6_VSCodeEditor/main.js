@@ -20,3 +20,5 @@ async function createWindow(){
 }
 
 app.whenReady().then(createWindow);
+
+app.allowRendererProcessReuse=false;
