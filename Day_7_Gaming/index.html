@@ -39,7 +39,7 @@
                 update: update  //working
             }
         }
-        let platform, player, cursor, stars, score = 0, scoreText, bombs, gameOver = false;
+        let platform, player, cursor, stars, score = 0, scoreText, bombs, gameOver = false, highscore=0, hstext;
         function preload() {    
             this.load.image("sky", "assets/sky.png");   //this == game
             this.load.image("platform", "assets/platform.png");
@@ -50,16 +50,19 @@
             this.load.image("star", "assets/star.png");
             this.load.audioSprite("sfx", "assets/fx_mixdown.json", ["assets/fx_mixdown.mp3", "assets/fx_mixdown.ogg"]);
             this.load.image("bomb", "assets/bomb.png");
+            this.load.image("arrow","assets/arrow.png");
+            this.load.image("gameover","assets/gameover.png");
         }
         function setup() {
             // to add background
             this.add.image(400, 300, "sky");    //center cordinate - center area che image chhap di
             // to make an asset static=> no effect of gravity
-            platform = this.physics.add.staticGroup();
+            platform = this.physics.add.staticGroup();  
             platform.create(400, 550, "platform").setScale(2).refreshBody();  //refresh jroori for the object to know about the scaling 
             platform.create(600, 400, "platform");
             platform.create(50, 250, "platform");
             platform.create(650, 200, "platform");
+            this.add.image(660,500,"arrow").setScale(0.2).setAlpha(0.2);    //setScale == size; setAlpha == transparency
             player = this.physics.add.sprite(400, 100, "hero"); 
             // to create cursor keys
             // for animation
@@ -86,6 +89,10 @@
                 fontSize: "32px",
                 fill: "white"
             })
+            hstext = this.add.text(500, 16, "High Score: " + highscore, {
+            fontSize: "32px",
+            fill: "white"
+        })
             player.setCollideWorldBounds(true);
 
             stars.children.iterate(function (star) {
@@ -132,11 +139,21 @@
             player.setTint(0xff0000); //color change
             player.anims.play("normal");    //move na kr paye bilkul bhi
             gameOver = true
+            this.add.image(400,300,"gameover");
             // location.reload();   //browser refersh
         }
         function update() {
             if(gameOver==true){
-                return;
+                // return;      
+                this.registry.destroy(); // destroy registry
+                this.events.off();// disable all active events
+                gameOver=false;
+                highscore = score>highscore?score:highscore;
+                hstext.setText("High Score: "+highscore);
+                score=0;
+                setTimeout(() => {
+                    this.scene.restart(); // restart current scene
+                }, 500);
             }
             if (cursor.left.isDown) {
                 player.setVelocityX(-160);
