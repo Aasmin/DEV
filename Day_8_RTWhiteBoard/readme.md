@@ -6,3 +6,13 @@
 * Electron -> Deploy webapp / Deploying server?
 * EXE Creation?
 * Learn Webrtc? EXTRAS
+
+### CanvasRenderingContext2D 
+Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+Here, PATH: collections of subpaths
+### Some functions:
+* beginPath() - start the subpath
+* moveTo() - bina draw kre, pencil ko move krta
+* lineTo() - draw krke, pencil move kre ga
+* closePath()
+* stroke() - to make lines visible (Rendering)

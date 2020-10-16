@@ -12,10 +12,23 @@
         <canvas class="board"></canvas>
     </div>
     <script>
+        let a = 10;
         let board = document.querySelector(".board");
+        board.height=window.innerHeight;
+        board.width=window.innerWidth;
         let ctx = board.getContext("2d");   //ctx nu use krke hi canvas de functions use kr skde
-        ctx.fillStyle="red";
-        ctx.fillRect(50, 50, 50, 50);   // cheezan provide krde (shift x axis->, y|^, height, width)
+        // ctx.fillStyle="red";
+        // ctx.fillRect(50, 50, 50, 50);   // cheezan provide krde (shift x axis->, y|^, height, width)
+        ctx.beginPath(0, 0);
+
+        // ctx.beginPath();
+        // ctx.moveTo(20, 40);
+        // ctx.lineTo(150, 150);
+        // ctx.lineTo(200, 70);
+        // ctx.moveTo(30,40);
+        // ctx.lineTo(100,40);
+        // to print 
+        // ctx.stroke();
     </script>
     <script src="script.js"></script>
 </body>
