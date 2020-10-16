@@ -9,6 +9,8 @@ let myMonaco, editor;
 require('jstree');  //jstree mein har file and folder ko node kehte hein. 
 let tabArr = {};
 const path = require('path') //jstree ka module hai path
+const dialog = require("electron").remote.dialog;
+let filename;
 $(document).ready(async function(){   //jquery ka function i.e agr document load hojae to function chla do
     //editor
     editor = await createEditor();  //added promise
@@ -128,6 +130,34 @@ $(document).ready(async function(){   //jquery ka function i.e agr document load
         }
         isDark = !isDark;
     })
+    $("#New").click( async function(){
+        try{
+        let sdb = await dialog.showSaveDialog();
+        let fp = sdb.filePath;
+        fs.writeFileSync(fp,"");
+        console.log(fp)
+        saveNewFile(fp);
+        }catch(err){
+            console.log(err)
+        }
+    })
+        $("#Save").click(async function(){
+        code = editor.getModel().getValue();
+        if(filename){
+            fs.writeFileSync(filename,code);
+            alert(`${path.parse(filename).base} is saved`)
+        }else{
+            try{
+            let sdb = await dialog.showSaveDialog();
+            let fp = sdb.filePath;
+            fs.writeFileSync(fp,code);
+            saveNewFile(fp)
+            alert(`${path.parse(fp).base} is saved`)
+            }catch(err){
+                console.log(err);
+            }
+        }
+    })    
     $(".file-explorer").resizeable();
     setTimeout(function () {
         myMonaco.editor.setTheme('myTheme');
@@ -197,6 +227,7 @@ function setData(fPath) {
         myMonaco.editor.setModelLanguage(model, ext);   
 }
 function createTab(fPath) {
+    filename = fPath;
     let fName = path.basename(fPath);
     if (!tabArr[fPath]) {   //For icon Used: https://fontawesome.com/icons?d=gallery&q=close
         $("#tabs-row").append(`<div class="tab">
@@ -208,6 +239,7 @@ function createTab(fPath) {
 }
 function handleTab(elem) {  // mirror the file explorer click to open up the file if clicked on tab already opened
     let fPath = $(elem).attr("id");
+    filename = fPath;
     setData(fPath);
 }
 function handleClose(elem) {
@@ -215,7 +247,27 @@ function handleClose(elem) {
     delete tabArr[fPath];
     $(elem).parent().remove();  //parent == tab (line 130)
     fPath =$(".tab .tab-name").eq(0).attr("id");    // find first tab
+    filename = fPath;
     if(fPath){
         setData(fPath);
+    } else{ //if no tab is there
+        editor.getModel().setValue("");
     }
+}
+function saveNewFile(fp){
+    setData(fp);
+    createTab(fp);
+    // console.log(fp)
+    console.log(path.parse(fp).dir)
+    let obj = {
+        id: fp,
+        parent: path.parse(fp).dir,
+        text: path.parse(fp).base
+    };
+    let doesExist = $('#tree').jstree(true).get_node(fp); // if that childrens are already created
+            if(doesExist){
+                return;
+            }
+            // create logic
+            $("#tree").jstree().create_node(path.parse(fp).dir, obj, "last");
 }
