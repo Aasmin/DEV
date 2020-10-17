@@ -16,6 +16,11 @@
         let board = document.querySelector(".board");
         board.height=window.innerHeight;
         board.width=window.innerWidth;
+        //To Solve: Poori screen te draw krn layi. Window/screen se baat krne ke liye use window API. Document se baat krne ke liye use document API
+        window.addEventListener("resize", function () {
+            board.height = window.innerHeight;
+            board.width = window.innerWidth;
+        })
         let ctx = board.getContext("2d");   //ctx nu use krke hi canvas de functions use kr skde
         // ctx.fillStyle="red";
         // ctx.fillRect(50, 50, 50, 50);   // cheezan provide krde (shift x axis->, y|^, height, width)
