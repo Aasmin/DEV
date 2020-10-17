@@ -6,6 +6,7 @@ board.addEventListener("mousedown", function (e) {
     let top= getPosition(); 
     y = y - top;
     //  move to
+    ctx.beginPath(0, 0);
     ctx.moveTo(x, y);
     ispendown = true;
 })

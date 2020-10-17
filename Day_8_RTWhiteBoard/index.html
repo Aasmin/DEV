@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tool-panel"></div>
+    <div class="tool-panel">
+        <div class="hamburger-icon">
+            <div class="tool-bar">
+                <div class="tool">
+                    <img src="./NewIcons/Black_Pencil.svg" alt="" id="pencil" class="tool-img">
+                    <div class="tool-options"></div>
+                </div>
+                <div class="tool">
+                    <img src="./NewIcons/Eraser.svg" alt="" id="eraser" class="tool-img">
+                    <div class="tool-options"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="drawing-area">
         <canvas class="board"></canvas>
     </div>
@@ -36,5 +49,6 @@
         // ctx.stroke();
     </script>
     <script src="script.js"></script>
+    <script src="tools.js"></script>
 </body>
 </html>
