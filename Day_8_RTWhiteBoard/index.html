@@ -18,10 +18,18 @@
                     <img src="./NewIcons/Eraser.svg" alt="" id="eraser" class="tool-img">
                     <div class="tool-options"></div>
                 </div>
+                <div class="tool">
+                    <img src="./NewIcons/Undo.svg" alt="" id="undo" class="tool-img">
+                    <div class="tool-options"></div>
+                </div>
+            </div>
+        </div>
+        <!-- canvas -->
             </div>
         </div>
     </div>
     <div class="drawing-area">
+        <!-- whiteboard -->
         <canvas class="board"></canvas>
     </div>
     <script>
@@ -33,7 +41,10 @@
         window.addEventListener("resize", function () {
             board.height = window.innerHeight;
             board.width = window.innerWidth;
+            //  drawing get cleared
+            redraw();
         })
+         // API canaasrenderingContext2D
         let ctx = board.getContext("2d");   //ctx nu use krke hi canvas de functions use kr skde
         // ctx.fillStyle="red";
         // ctx.fillRect(50, 50, 50, 50);   // cheezan provide krde (shift x axis->, y|^, height, width)

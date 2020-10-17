@@ -1,4 +1,5 @@
 let ispendown = false;
+let points = [];
 board.addEventListener("mousedown", function (e) {
     // path start
     let x = e.clientX;
@@ -9,6 +10,15 @@ board.addEventListener("mousedown", function (e) {
     ctx.beginPath(0, 0);
     ctx.moveTo(x, y);
     ispendown = true;
+
+    let mdp = {
+        x: x,
+        y: y,
+        id: "md",
+        color: ctx.strokeStyle,
+        width: ctx.lineWidth
+    }
+    points.push(mdp);
 })
 board.addEventListener("mousemove", function (e) {
     //  lineto 
@@ -19,6 +29,15 @@ board.addEventListener("mousemove", function (e) {
     if (ispendown == true) {
         ctx.lineTo(x, y);
         ctx.stroke();
+
+        let mmp = {
+            x: x,
+            y: y,
+            id: "mm",
+            color: ctx.strokeStyle,
+            width: ctx.lineWidth
+        }
+        points.push(mmp);
     }
     // repeat
 })
@@ -33,3 +52,18 @@ function getPosition() {
     let { top } = board.getBoundingClientRect();    // shorthand declaration: https://stackoverflow.com/questions/15290981/what-does-curly-brackets-in-the-var-statements-do
     return top;
 } 
+
+function redraw() {
+    for (let i = 0; i < points.length; i++) {
+        let { x, y, id, color, width } = points[i];
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        if (id == "md") {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        } else if (id == "mm") {
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+    }
+}
