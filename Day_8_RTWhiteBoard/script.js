@@ -1,5 +1,6 @@
 let ispendown = false;
 let points = [];
+let redoArr = [];
 board.addEventListener("mousedown", function (e) { //jb draw krna shuru kiya
     // path start
     let x = e.clientX;
@@ -41,13 +42,11 @@ board.addEventListener("mousemove", function (e) {  //jb draw ho rha hai
     }
     // repeat
 })
-
 window.addEventListener("mouseup", function (e) {//this is window event as jad bahr chale jande c then aape draw krda rehnda c
     // mouse up
     ispendown = false;
 
 }) 
-
 function getPosition() {
     let { top } = board.getBoundingClientRect();    // shorthand declaration: https://stackoverflow.com/questions/15290981/what-does-curly-brackets-in-the-var-statements-do
     return top;
@@ -70,6 +69,8 @@ function redraw() {
 
 /**
  * 1. Pop last line -> 2. clear Rect -> 3. redraw
+ *  Redo: while poping last line, push line to the tempArr
+ *  tempArr = [[p5,p7], [p8, p9]]
  */
 function undoMaker() {
     /*Some functions:
@@ -79,20 +80,38 @@ function undoMaker() {
     removeLast => pop    */
     if (points.length >= 2) { //atleast one line te howe i.e md+mm
         // pop last line
+        let tempArr = [];
         for (let i = points.length - 1; i >= 0; i--) {
             let { id } = points[i];
             if (id == "md") {
-                points.pop();
+                tempArr.unshift(points.pop());
                 break;
             }else{
-//  mm
-                points.pop();
+                //  mm
+                tempArr.unshift(points.pop());
             }
         }
         //  clear Rect
         ctx.clearRect(0, 0, board.width, board.height);
         // call redraw
+        redoArr.push(tempArr);
         redraw();
     }
 
+}
+
+/**
+ * tempArr = [A[p5,p7], B[p8, p9]]
+ * tempArr de front ton points chuk ke pointArr de pichhe paa do
+ * 
+ */
+function redoMaker() {
+    if (redoArr.length > 0) {
+        let mrPathArr = redoArr.pop();
+        //  add all points to undo arr
+        points.push(...mrPathArr);  // Ex: tempArr da array A chuk ke points che paa do
+        ctx.clearRect(0, 0, board.width, board.height);
+        // call redraw
+        redraw();
+    }
 }

@@ -16,3 +16,6 @@ Here, PATH: collections of subpaths
 * lineTo() - draw krke, pencil move kre ga
 * closePath()
 * stroke() - to make lines visible (Rendering)
+
+### Why I clear and redraw each time for undo/redo/resize?
+Canvas is like painting we can store points of drawing and then redraw.
