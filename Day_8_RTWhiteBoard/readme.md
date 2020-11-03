@@ -19,3 +19,11 @@ Here, PATH: collections of subpaths
 
 ### Why I clear and redraw each time for undo/redo/resize?
 Canvas is like painting we can store points of drawing and then redraw.
+
+#### Some Learning points:
+* Alternate to addEventListner is to use onclick in .html (Ex: color change in pencil).
+* To center anything in a box, use below in style-sheets: 
+    "display: flex;
+    justify-content: center;
+    align-items: center;"
+

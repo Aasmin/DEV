@@ -110,6 +110,7 @@ function redoMaker() {
         let mrPathArr = redoArr.pop();
         //  add all points to undo arr
         points.push(...mrPathArr);  // Ex: tempArr da array A chuk ke points che paa do
+        
         ctx.clearRect(0, 0, board.width, board.height);
         // call redraw
         redraw();
