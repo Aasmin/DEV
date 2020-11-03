@@ -1,6 +1,6 @@
 let ispendown = false;
 let points = [];
-board.addEventListener("mousedown", function (e) {
+board.addEventListener("mousedown", function (e) { //jb draw krna shuru kiya
     // path start
     let x = e.clientX;
     let y = e.clientY;
@@ -20,13 +20,13 @@ board.addEventListener("mousedown", function (e) {
     }
     points.push(mdp);
 })
-board.addEventListener("mousemove", function (e) {
+board.addEventListener("mousemove", function (e) {  //jb draw ho rha hai
     //  lineto 
     let x = e.clientX;
     let y = e.clientY;
     let top= getPosition();
     y = y - top;
-    if (ispendown == true) {
+    if (ispendown == true) { 
         ctx.lineTo(x, y);
         ctx.stroke();
 
@@ -68,12 +68,16 @@ function redraw() {
     }
 }
 
+/**
+ * 1. Pop last line -> 2. clear Rect -> 3. redraw
+ */
 function undoMaker() {
-    // addFirst => unshift, 
-    // removeFirst => shift
-    //  addLast=> push
-    // removeLast => pop
-    if (points.length >= 2) {
+    /*Some functions:
+    addFirst => unshift, 
+    removeFirst => shift
+     addLast=> push
+    removeLast => pop    */
+    if (points.length >= 2) { //atleast one line te howe i.e md+mm
         // pop last line
         for (let i = points.length - 1; i >= 0; i--) {
             let { id } = points[i];

@@ -12,7 +12,7 @@ undo.addEventListener("click", function () {
     undoMaker()
 })
 
-
+// CTRL + Z = undo 
 document.addEventListener("keydown", function (e) {
     var evtobj = e;
     if (evtobj.keyCode == 90 && evtobj.ctrlKey)
