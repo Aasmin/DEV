@@ -5,6 +5,7 @@ let redo = document.querySelector("#redo");
 let pencilOptions = document.querySelector("#pencil-options");
 let eraserOptions = document.querySelector("#eraser-options");
 let sliders = document.querySelectorAll("input[type='range']");
+let sticky = document.querySelector("#sticky");
 // ctx.lineWidth=10;
 let activeTool = "pencil";
 ctx.lineJoin = "round";
@@ -39,7 +40,9 @@ undo.addEventListener("click", function () {
 redo.addEventListener("click", function () {
     redoMaker()
 })
-
+sticky.addEventListener("click", function () {
+    createSticky();
+})
 // CTRL + Z = undo 
 document.addEventListener("keydown", function (e) {
     var evtobj = e;

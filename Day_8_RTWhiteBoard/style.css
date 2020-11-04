@@ -77,3 +77,27 @@ input[type='range']{
 .blue{
     background: blue;
 } 
+/* styling  */
+.stickyPad{
+    height: 14rem;
+    width: 16rem;
+    background: yellow;
+    position: absolute;
+    top: 34vh;
+    left: 20vw;
+}
+.navBar{
+    height: 16%;
+    background: sandybrown;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1rem;
+}
+.container{
+    height: calc(14rem - 16%);
+}
+textarea{
+    height: 100%;
+    width: 100%;
+} 
