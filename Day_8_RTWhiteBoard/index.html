@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="tool-panel">
-        <div class="hamburger-icon">
+        <div class="hamburger-icon"></div>
             <div class="tool-bar">
                 <div class="tool">
                     <img src="./NewIcons/Black_Pencil.svg" alt="" id="pencil" class="tool-img">
                     <div class="tool-options" id="pencil-options">
                         <div class="slider">
-                            <input type="range" value='5' min='1' max='50'></div>
+                            <input type="range" value='5' min='1' max='50' id="pencil-slider"></div>
                         <div class="colors">
                             <div class="color red" onclick="handleColor('red')"></div>
                             <div class="color green" onclick="handleColor('green')"></div>
@@ -36,6 +36,9 @@
                 </div>
                 <div class="tool">
                     <img src="./NewIcons/StickyNote.svg" alt="" id="sticky" class="tool-img">
+                </div>
+                <div class="tool">
+                    <input type="file" id="upload" accept="image/*" class="tool-img">
                 </div>
             </div>
         </div>
@@ -77,5 +80,6 @@
     <script src="script.js"></script>
     <script src="tools.js"></script>
     <script src="sticky.js"></script>
+    <script src="img.js"></script>
 </body>
 </html>
