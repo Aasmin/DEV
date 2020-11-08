@@ -85,6 +85,8 @@ input[type='range']{
     position: absolute;
     top: 34vh;
     left: 20vw;
+    resize: both;
+    overflow: auto;
 }
 .navBar{
     height: 16%;
