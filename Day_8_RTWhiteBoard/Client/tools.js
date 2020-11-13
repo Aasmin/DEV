@@ -44,14 +44,24 @@ eraser.addEventListener("click", function () {
         ctx.lineWidth = eraserSize;
         // socket.emit("color", "white");
     }
+})
+board.addEventListener("click", function(){
+    pencilOptions.classList.remove("show");
+    eraserOptions.classList.remove("show");
 }) 
 undo.addEventListener("click", function () {
+    pencilOptions.classList.remove("show");
+    eraserOptions.classList.remove("show");
     undoMaker()
 })
 redo.addEventListener("click", function () {
+    pencilOptions.classList.remove("show");
+    eraserOptions.classList.remove("show");
     redoMaker()
 })
 sticky.addEventListener("click", function () {
+    pencilOptions.classList.remove("show");
+    eraserOptions.classList.remove("show");
     createSticky();
 })
 // CTRL + Z = undo 
@@ -71,6 +81,8 @@ document.addEventListener("keydown", function (e) {
 function handleColor(color) {
     ctx.strokeStyle = color;
     socket.emit("color", color);
+    pencilOptions.classList.remove("show");
+    eraserOptions.classList.remove("show");
 }
 
 sliders.forEach(function (slider) {
