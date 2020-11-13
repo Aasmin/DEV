@@ -20,6 +20,7 @@ board.addEventListener("mousedown", function (e) { //jb draw krna shuru kiya
         width: ctx.lineWidth
     }
     points.push(mdp);
+    socket.emit("md", mdp);
 })
 board.addEventListener("mousemove", function (e) {  //jb draw ho rha hai
     //  lineto 
@@ -39,6 +40,7 @@ board.addEventListener("mousemove", function (e) {  //jb draw ho rha hai
             width: ctx.lineWidth
         }
         points.push(mmp);
+        socket.emit("mm", mmp);
     }
     // repeat
 })

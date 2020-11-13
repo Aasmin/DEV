@@ -1,3 +1,6 @@
+// connect to ws server
+const socket = io.connect("http://localhost:3000");
+console.log(socket);
 let pencil = document.querySelector("#pencil");
 let eraser = document.querySelector("#eraser");
 let undo = document.querySelector("#undo");
@@ -24,6 +27,7 @@ pencil.addEventListener("click", function () {
         eraserOptions.classList.remove("show");
         ctx.strokeStyle = "black";
         ctx.lineWidth = pencilSize
+        // socket.emit("color", "black");
     }
 })
 eraser.addEventListener("click", function () {
@@ -35,7 +39,9 @@ eraser.addEventListener("click", function () {
         activeTool = "eraser";
         pencilOptions.classList.remove("show");
         ctx.strokeStyle = "white";
+        // socket.emit("message", "white");
         ctx.lineWidth = eraserSize;
+        // socket.emit("color", "white");
     }
 }) 
 undo.addEventListener("click", function () {
@@ -63,6 +69,7 @@ document.addEventListener("keydown", function (e) {
 
 function handleColor(color) {
     ctx.strokeStyle = color;
+    socket.emit("color", color);
 }
 
 sliders.forEach(function (slider) {

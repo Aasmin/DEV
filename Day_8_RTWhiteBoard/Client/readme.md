@@ -3,7 +3,8 @@
 * For Server: Express, Socket.io (for real time communication)
 * Draw: Canvas API (as google maps also uses canvas). Reference: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Drawing_graphics
 * File Upload: Browswer API
-* Electron -> Deploy webapp / Deploying server?
+* Node ->  Express Framework ()- BackEnd (SERVER)
+* Electron -> Browser Frontend  (CLIENT)
 * EXE Creation?
 * Learn Webrtc? EXTRAS
 
@@ -20,12 +21,18 @@ Here, PATH: collections of subpaths
 ### Why I clear and redraw each time for undo/redo/resize?
 Canvas is like painting we can store points of drawing and then redraw.
 
-#### Some Learning points:
+### Some Learning points:
 * Alternate to addEventListner is to use onclick in .html (Ex: color change in pencil).
 * To center anything in a box, use below in style-sheets: 
     "display: flex;
     justify-content: center;
     align-items: center;"
+* Web-socket: Bidirectional protocol (Application layer)
+* ####  Soccket.io - Get Started : https://socket.io/get-started/chat
+  * Bidirectional (messages can be send from client as well from server)
+  * Connection stays alive (first connection is made between client and server (1. request 2. response 3. connection made))
+  * header (message kahan jana hai) - used in realtime communication
+   Note: http ke andr connection alive ni hunda.. ()
 
 #### References:
   *  Canvas :
