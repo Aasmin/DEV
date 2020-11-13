@@ -98,6 +98,7 @@ function undoMaker() {
         // call redraw
         redoArr.push(tempArr);
         redraw();
+        socket.emit("undo");
     }
 
 }
@@ -116,5 +117,6 @@ function redoMaker() {
         ctx.clearRect(0, 0, board.width, board.height);
         // call redraw
         redraw();
+        socket.emit("redo");
     }
 }

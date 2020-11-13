@@ -20,17 +20,23 @@ io.on("connection", function (socket) {
         console.log(data);
         socket.broadcast.emit('colorchange', color);
     })
+    socket.on("md", function (point) {
+        socket.broadcast.emit("onmd", point);
+    })
+    socket.on("mm", function (point) {
+        socket.broadcast.emit("onmm", point);
+    })
+    socket.on("undo", function () {
+        socket.broadcast.emit("undo");
+    })
+    socket.on("redo", function () {
+        socket.broadcast.emit("redo");
+    })
 })
-socket.on("md", function (point) {
-    socket.broadcast.emit("onmd", point);
-})
-socket.on("mm", function (point) {
-    socket.broadcast.emit("onmm", point);
-})
-
-app.get("/", function (req, res) {   //127.0.0.1 = localhost
-    res.end("<h1>Welcome to home Page</h1>")
-})
+app.use(express.static("client"));  //static files will be added. by default index.html lbhuga and kholu
+// app.get("/", function (req, res) {   //127.0.0.1 = localhost
+//     res.end("<h1>Welcome to home Page</h1>")
+// })
 
 //  connection - server machine hai jo listen krti | 3000 = port 
 let port = process.env.PORT || 3000;
