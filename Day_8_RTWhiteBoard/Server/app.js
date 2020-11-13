@@ -33,7 +33,8 @@ socket.on("mm", function (point) {
 // })
 
 //  connection - server machine hai jo listen krti | 3000 = port 
-httpServer.listen(3000, function () {
+let port = process.env.PORT || 3000;
+httpServer.listen(port, function () {
     console.log("Server started at port 3000");
 }) 
 

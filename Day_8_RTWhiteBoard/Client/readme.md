@@ -5,7 +5,7 @@
 * File Upload: Browswer API
 * Node ->  Express Framework ()- BackEnd (SERVER)
 * Electron -> Browser Frontend  (CLIENT)
-* EXE Creation?
+* EXE Creation: Package Creation 
 * Learn Webrtc? EXTRAS
 
 ### CanvasRenderingContext2D 
