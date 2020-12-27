@@ -3,6 +3,7 @@
 //npm install socket.io 
 // npm install electron-packager -g
 // Install scripts from: https://www.christianengvall.se/electron-packager-tutorial/ 
+// sudo npm run package-mac
 //To start server: node app
 
 // api  
