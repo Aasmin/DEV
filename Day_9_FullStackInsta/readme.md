@@ -5,6 +5,7 @@
 
 
 #### Notes:
+* POSTMAN: Interact via Params(URI) & Body
 * uuid - For unique Id
 * NodeMon - Autorestart due to change. Restart maarn di lodd nahi, apne aap restart kr lwega.
     * 1. "npm i nodemon --save-dev" 
