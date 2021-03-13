@@ -72,5 +72,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ### Manual Commands while building and testing the app
+#### // Stateless Functional Component (From settings tyep in emmet and add up javascriptreact)
+Use sfc shortcut
+
 #### To make the server: 
 npx json-server --watch data/db.json --port 8000
+
+#### React route package:
+npm install react-router-dom@5
