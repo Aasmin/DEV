@@ -1,0 +1,30 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Welcome to the new Blog!",
+            "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit ratione magni error est quasi laudantium perspiciatis consectetur nihil, minus rerum quo officia dolore, dolorum et laborum eos. Dolores corporis voluptate neque, recusandae culpa repellat perspiciatis officia doloremque. Unde sapiente neque, eligendi earum, nulla laboriosam veniam illum explicabo aut enim inventore quia dicta vitae necessitatibus natus reiciendis similique quas ex magnam voluptate pariatur magni nemo? Earum cupiditate sunt vitae animi corporis consequuntur vel velit ab magnam nihil eius veritatis quas unde voluptate at suscipit, magni inventore tenetur repellat. Vitae, iste? Quibusdam sit corrupti nostrum, pariatur numquam rerum consequuntur repellat dolorem esse.",
+            "likes": 30
+        },
+        {
+            "id": 2,
+            "title": "How to get a job!",
+            "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Do Practise and Update your skillset.",
+            "likes": 15
+        },
+        {
+            "id": 3,
+            "title": "Hardwork is not everything",
+            "body": "Go for your interest. Satisfaction and peace will come.",
+            "likes": 99
+        }
+    ], 
+    "polls": [
+        {
+            "id": 1,
+            "question": "What do you prefer?",
+            "answerA": "A",
+            "answerB": "B"
+        }
+    ]
+}
