@@ -1,11 +1,15 @@
 // javascript for index.html
 
 const container = document.querySelector('.blogs');
+const searchForm = document.querySelector('.search');
 
 const renderPosts = async (term) => {
     console.log(term);
-    let uri = 'http://localhost:3000/posts';
-
+    let uri = 'http://localhost:3000/posts?_sort=likes&_order=desc';
+    if (term) {
+      uri += `&q=${term}`
+    }
+  
     let res = await fetch(uri);
     let posts = await res.json();
     console.log(posts);
@@ -17,12 +21,18 @@ const renderPosts = async (term) => {
           <h2>${post.title}</h2>
           <p><small>${post.likes} likes</small></p>
           <p>${post.body.slice(0, 200)}...</p>
-          <a href="/details.html?id=${post.id}">Read more</a>
+          <a href="/Day_13_JSONServer_NetNinja/details.html?id=${post.id}">Read more</a>
         </div>
       `
     });
     container.innerHTML = template;
 
   }
+
+  // search
+searchForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  renderPosts(searchForm.term.value.trim());
+})
 
 window.addEventListener('DOMContentLoaded', () => renderPosts());
