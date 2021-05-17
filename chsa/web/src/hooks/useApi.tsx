@@ -12,9 +12,9 @@
 // limitations under the License.
 //
 
-import type { AxiosInstance, AxiosResponse } from 'axios';
 import axios from 'axios';
 import { useEffect, useRef } from 'react';
+import type { AxiosInstance, AxiosResponse } from 'axios';
 import { API } from '../constants';
 
 const useAxios = () => {
